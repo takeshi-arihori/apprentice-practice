@@ -34,6 +34,21 @@ irbの使い方
 バイト値の確認
 ```puts "A".bytes```
 
-真偽値
+#### 真偽値 nil
 偽 -> false, nil
 真 -> それ以外の全て
+
+#### キャメルケースは使わない
+``` def hello_world<br>"Hello, World"<br>end ```
+
+#### 数値から文字列へ変換
+```number.to_s(base=10)```
+
+#### class名の確認
+```'abc'.class```
+
+## 第三章
+Minitestを使ったテスト
+Minitestのversion確認
+```ruby -r minitest -e "puts Minitest::VERSION"```
+
