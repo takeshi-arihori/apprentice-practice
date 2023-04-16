@@ -411,11 +411,13 @@ dvd.to_s
 
 # ============== protectedメソッド ===============
 # そのメソッドを定義したクラス自身と、そのサブクラスのインスタンスメソッドからレシーバ付きで呼び出せる
-# 用途: 外部には公開したくないが、同じクラスやサブクラスの中であればレシーバ付きで呼美だせるようにしたい！！という時に使える
+# 用途: 外部には公開したくないが、同じクラスやサブクラスの中であればレシーバ付きで呼びだせるようにしたい！！という時に使える
+# Ruby 3.0以上ならメソッドの定義と同時にprotectedメソッドにすることができる
 
 class User
-  # weightは外部に公開しない
   attr_reader :name
+  #weightメソッドの定義と同時にprotectedメソッドにする
+  protected attr_reader :weight
 
   def initialize
     @name = name
@@ -444,12 +446,210 @@ bob.heavier_than?(alice)
 # クラスの外ではweightは呼び出せない
 alice.weight
 
-cl
 
-# ==============  ===============
-# ==============  ===============
-# ==============  ===============
-# ==============  ===============
-# ==============  ===============
-# ==============  ===============
-# ==============  ===============
+
+# ============== クラスインスタンス変数 ===============
+
+# クラスインスタンス変数とは、インスタンス作成とは無関係に、クラス自身が保持しているデータのこと
+# 継承した場合、クラスインスタンス変数はスーパークラスとサブクラスでは異なる変数として参照することになる
+
+class Product
+  # クラスインスタンス変数
+  @name = 'Product'
+
+  def self.name
+    # クラスインスタンス変数
+    @name
+  end
+
+  def initialize(name)
+    # インスタンス変数
+    @name = name
+  end
+
+  # attr_reader :name絵もいいが、@nameの中身を意識するためにあえてメソッドを定義する
+  def name
+    # インスタンス変数
+    @name
+  end
+end
+
+class DVD < Product
+  @name = 'DVD'
+
+  def self.name
+    # クラスインスタンス変数を参照
+    @name
+  end
+  def upcase_name
+    # インスタンス変数を参照
+    @name.upcase
+  end
+end
+
+
+Product.name
+DVD.name
+
+product = Product.new('A great movie')
+product.name
+
+dvd = DVD.new('An awesome film')
+dvd.name
+dvd.upcase_name
+
+Product.name
+DVD.name
+
+# ============== クラス変数 ===============
+# クラスメソッド内でもインスタンスメソッド内でも参照できてしまう
+# 滅多に使用しない
+class Product
+  @@name = 'Product'
+
+  def self.name
+    @@name
+  end
+
+  def initialize(name)
+    @@name = name
+  end
+
+  def name
+    @@name
+  end
+end
+
+class DVD < Product
+  @@name = 'DVD'
+
+  def self.name
+    @@name
+  end
+  def upcase_name
+    @@name.upcase
+  end
+end
+
+
+Product.name
+DVD.name
+
+product = Product.new('A great movie')
+product.name
+
+dvd = DVD.new('An awesome film')
+dvd.name
+dvd.upcase_name
+
+Product.name
+DVD.name
+
+
+
+# ============== 等値を判断するメソッドや演算子 ===============
+
+# equal? -> object_idが等しい場合true
+# == -> 内容が等しいならtrue 例: 1 == 1.0 true
+# === -> "when節のオブジェクト === case節のオブジェクト"の結果を評価する時や、パターンマッチの際
+# eql? -> == よりも厳格な等値判定 例: 1 eql? 1.0 false ハッシュ値が同じかで判定
+.hash # -> ハッシュ値が出力される
+
+# eql?の代表的な用途:2つのオブジェクトが8種のキーとして同じかどうかを判定する
+# ハッシュ値は稀に異なるオブジェクトから同じkeyが生成されることがある
+class CountryCode
+  attr_reader :code
+
+  def initialize(code)
+    @code = code
+  end
+
+  def eql?(other)
+    # otherがCountryCodeかつ、同じ国コードなら同じキーとみなす
+    other.instance_of?(CountryCode) && code.eql?(other.code)
+  end
+
+  def hash
+    # CountryCodeオブジェクトのハッシュ値として国コードのハッシュ値を返す
+    code.hash
+  end
+end
+
+japan = CountryCode('JP')
+us = CountryCode('US')
+india = CountryCode('IN')
+
+currencies = {
+  japan: 'yen',
+  us: 'dollar',
+  india: 'rupee'
+}
+
+# 同じ国コードなら同じキーとみなされる
+key = CountryCode.new('JP')
+currencies[:key]
+currencies[:japan]
+
+# 等価（equality）:
+# 等価とは、2つのオブジェクトが同じ「値」を持っていることを示します。
+# オブジェクトの内容が同じであるかどうかを判断しますが、オブジェクトの実際のインスタンスについては考慮しません。
+str1 = "hello"
+str2 = "hello"
+
+puts str1 == str2 # => true
+
+
+# 等値（identity）:
+
+# 等値とは、2つのオブジェクトが同じ「インスタンス」であることを示します。
+# equal?メソッドまたはobject_idメソッドを使用してオブジェクトの等値性を比較します。
+
+str1 = "hello"
+str2 = "hello"
+str3 = str1
+
+puts str1.equal?(str2) # => false
+puts str1.equal?(str3) # => true
+
+puts str1.object_id == str2.object_id # => false
+puts str1.object_id == str3.object_id # => true
+
+
+
+
+# ============== ダックタイピング ===============
+
+# ダックタイピング -> メソッドが呼び出せばよしとされるプログラミングスタイルのこと
+
+class Product
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+
+  def display_text
+    # stockメソッドはサブクラスで実装してもらう想定
+    stock = stock? ? 'あり' : 'なし'
+    "商品名: #{@name} 価格: #{@price} 在庫: #{@stock}"
+  end
+
+  # 例外処理
+  def stock?
+    # 「サブクラスでstock?メソッドを実装すること」といメッセージとともにエラーを発生させる
+    raise 'must implement stock? in subclass.'
+  end
+end
+
+class DVD < Product
+  # 在庫があればtrueを返す
+  def stock?
+    # データベースの接続を書くのだが今回は省略
+    true
+  end
+end
+
+product = Product.new('A great film', 1000)
+product.display_text
+
+dvd = DVD.new('An awesome film', 3000)
+dvd.display_text
