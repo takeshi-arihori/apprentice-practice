@@ -1,0 +1,48 @@
+@startuml blackjack
+
+class Card {
+  +rank: String
+  +suit: String
+  +value(): Integer
+}
+
+class Deck {
+  -cards: Array<Card>
+  +shuffle(): Void
+  +draw(): Card
+}
+
+class Hand {
+  -cards: Array<Card>
+  +add_card(card: Card): Void
+  +total(): Integer
+}
+
+class Player {
+  -hand: Hand
+  +hit(deck: Deck): Void
+  +stand(): Void
+}
+
+class Dealer {
+  -hand: Hand
+  +play(deck: Deck): Void
+}
+
+class Game {
+  -player: Player
+  -dealer: Dealer
+  -deck: Deck
+  +initialize(player: Player, dealer: Dealer): Void
+  +add_card_to_hand(hand: Hand, deck: Deck): Void
+  +judge(): String
+}
+
+Game "1" *-- "1" Player : has
+Game "1" *-- "1" Dealer : has
+Game "1" *-- "1" Deck : has
+Player "1" *-- "1" Hand : has
+Dealer "1" *-- "1" Hand : has
+Hand "1" *-- "*" Card : has
+
+@enduml
