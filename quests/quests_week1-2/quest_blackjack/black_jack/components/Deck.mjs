@@ -1,13 +1,13 @@
 import { Card } from "./card.mjs";
 
 export class Deck {
-  constructor() {
-    this.deck = Deck.generateDeck();
+  constructor(gameMode = null) {
+    this.deck = Deck.generateDeck(gameMode);
   }
 
   // デッキを作成するメソッド
   // constructorで初期化と同時に生成するためstaticにする
-  static generateDeck() {
+  static generateDeck(gameMode = null) {
     let newDeck = [];
     const suits = ["♣", "♦", "♥", "♠"];
     const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]

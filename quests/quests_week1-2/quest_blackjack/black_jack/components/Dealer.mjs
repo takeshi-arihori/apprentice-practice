@@ -1,3 +1,4 @@
+import { HelperFunctions } from "./HelperFunctions.mjs";
 import { Deck } from "./deck.mjs";
 
 export class Dealer {
@@ -7,7 +8,7 @@ export class Dealer {
     let table = {
       "players": [],
       "gameMode": gameMode,
-      "deck": new Deck(),
+      "deck": new Deck(gameMode),
     }
 
     // デッキをシャッフル
@@ -54,6 +55,36 @@ export class Dealer {
     }
     if(value > 21) value = 0;
     return value;
+  }
+
+  // 勝利したプレイヤーを表示する
+  // それぞれのプレイヤーの手札をscore21Individualで計算
+  static winnerOf21(table){
+    let points = [];
+    let cache = [];
+    for(let i = 0; i < table["players"].length; i++){
+      let point = Dealer.score21Individual(table["players"][i]);
+      // それぞれのpointを配列に保存
+      points.push(point);
+
+      if(cache[point] >= 1) cache[point] += 1;
+      else cache[point] = 1;
+    }
+
+    // 各プレイヤーの得点を確認する
+    console.log(points);
+
+    let winnerIndex = HelperFunctions.maxInArrayIndex(points);
+    if(cache[points[winnerIndex]] > 1) return "It is a draw";
+    else if(cache[points[winnerIndex]] >= 0) return "player " + (winnerIndex + 1) + " is the winner";
+    else return "No winners..";
+  }
+
+
+  // 宅のゲームの種類によって勝利条件を変更
+  static checkWinner(table){
+    if(table["gameMode"] == "21") return Dealer.winnerOf21(table);
+    else return "no game";
   }
 }
 

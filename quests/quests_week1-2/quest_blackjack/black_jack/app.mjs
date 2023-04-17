@@ -19,7 +19,11 @@ import { Dealer } from "./components/dealer.mjs";
 // 4, 評価 -> プレーヤー勝ち = ハウスよりプレーヤーの合計値が高い or ハウスがバスト
 
 
+let table1 = Dealer.startGame(1, "poker");
+let table2 = Dealer.startGame(3, "21");
 
-// PlayerAの手札
-let arr1 = [1, 5, 7, 15, 9, 10];
-console.log(HelperFunctions.maxInArrayIndex(arr1))
+Dealer.printTableInformation(table1);
+console.log(Dealer.checkWinner(table1));
+
+Dealer.printTableInformation(table2);
+console.log(Dealer.checkWinner(table2));
