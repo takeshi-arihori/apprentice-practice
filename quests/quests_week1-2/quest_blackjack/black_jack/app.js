@@ -55,7 +55,21 @@ class Deck{
       console.log(this.deck[i].getCardString());
     }
   }
+
+  shuffleDeck(){
+    let deckSize = this.deck.length;
+    for(let i = deckSize-1; i >= 0; i--){
+      let j = Math.floor(Math.random() * (i+1));
+      let temp = this.deck[i];
+      this.deck[i] = this.deck[j];
+      this.deck[j] = temp;
+    }
+  }
 }
 
 let deck1 = new Deck();
-deck1.printDeck();
+// deck1.printDeck();
+
+// シャッフル後のデッキ
+deck1.shuffleDeck();
+// deck1.printDeck();
