@@ -34,6 +34,7 @@ class Deck{
   }
 
   // デッキを作成するメソッド
+  // constructorで初期化と同時に生成するためstaticにする
   static generateDeck(){
     let newDeck = [];
     const suits = ["♣", "♦", "♥", "♠"];
@@ -47,10 +48,14 @@ class Deck{
 
     return newDeck;
   }
+
+  printDeck(){
+    console.log("Displaying cards...")
+    for(let i = 0; i <  this.deck.length; i++){
+      console.log(this.deck[i].getCardString());
+    }
+  }
 }
 
 let deck1 = new Deck();
-
-// console.log(deck1.deck); // 全てのペアリスト
-console.log(deck1.deck[3]); // Card { suit: '♣', value: '4', intValue: 4 }
-// console.log(deck1.deck[3].getCardString()); // ♣4(4)
+deck1.printDeck();
