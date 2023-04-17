@@ -1,12 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- fontawesome -->
+  <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
   <title>Black Jack</title>
 </head>
+
 <body>
 
+  <body>
+    <div id="gameDiv" class="bg-green d-flex justify-content-center align-items-center vh-100">
+      <!-- all cards (dealer, players) div -->
+      <div class="col-12">
+        <div class="pt-5">
+          <p class="m-0 text-center text-white rem3">Dealer</p>
+
+          <!-- House Card Row -->
+          <div id="houesCardDiv" class="d-flex justify-content-center pt-3 pb-5">
+
+            <div class="bg-white border mx-2">
+              <div class="text-center">
+                <img src="/img/dashboard/lessons/projects/spade.png" alt="" width="50" height="50">
+              </div>
+              <div class="text-center">
+                <p class="m-0 ">7</p>
+              </div>
+            </div>
+
+            <div class="bg-white border mx-2">
+              <div class="text-center">
+                <img src="/img/dashboard/lessons/projects/diamond.png" alt="" width="50" height="50">
+              </div>
+              <div class="text-center">
+                <p class="m-0">8</p>
+              </div>
+            </div>
+
+            <div class="bg-white border mx-2">
+              <div class="text-center">
+                <img src="/img/dashboard/lessons/projects/heart.png" alt="" width="50" height="50">
+              </div>
+              <div class="text-center">
+                <p class="m-0">9</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="">
+
+          <!-- Players Div -->
+          <div id="playersDiv" class="d-flex justify-content-center">
+
+            <!-- nonCurPlayerDiv 1-->
+            <div id="nonCurPlayer1Div" class="flex-column">
+
+              <p class="m-0 text-white text-center rem3">ai1</p>
+
+              <!-- playerInfoDiv -->
+              <div class="text-white d-flex m-0 p-0 justify-content-between">
+                <p class="rem1 text-left">S:BUST </a>
+                <p class="rem1 text-left">B:0 </a>
+                <p class="rem1 text-left">R:255 </a>
+              </div>
+              <!-- cardsDiv -->
+              <div class="d-flex justify-content-center">
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/heart.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">2</p>
+                  </div>
+                </div>
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/clover.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">10</p>
+                  </div>
+                </div>
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/spade.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">8</p>
+                  </div>
+                </div><!-- end card -->
+              </div><!-- end Cards -->
+            </div><!-- end player -->
+
+            <!-- curPlayerDiv -->
+            <div id="curPlayerDiv" class="flex-column w-50">
+              <p class="m-0 text-white text-center rem3">ai2</p>
+
+              <!-- playerInfoDiv -->
+              <div class="text-white d-flex m-0 p-0 justify-content-center">
+                <p class="rem1 text-left">S:BUST </a>
+                <p class="rem1 text-left">B:0 </a>
+                <p class="rem1 text-left">R:255 </a>
+              </div>
+
+              <!-- cardsDiv -->
+              <div class="d-flex justify-content-center">
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/heart.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">2</p>
+                  </div>
+                </div>
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/clover.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">10</p>
+                  </div>
+                </div>
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/spade.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">8</p>
+                  </div>
+                </div><!-- end card -->
+              </div><!-- end Cards -->
+            </div><!-- end player -->
+
+            <!-- nonCurPlayer2Div -->
+            <div id="nonCurPlayer2Div" class="flex-column">
+
+              <p class="m-0 text-white text-center rem3">Yuki</p>
+
+              <!-- playerInfoDiv -->
+              <div class="text-white d-flex m-0 p-0 justify-content-between">
+                <p class="rem1 text-left">S:BUST </a>
+                <p class="rem1 text-left">B:0 </a>
+                <p class="rem1 text-left">R:255 </a>
+              </div>
+
+              <!-- cardsDiv -->
+              <div class="d-flex justify-content-center">
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/heart.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">2</p>
+                  </div>
+                </div>
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/clover.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">10</p>
+                  </div>
+                </div>
+                <div class="bg-white border mx-2">
+                  <div class="text-center">
+                    <img src="/img/dashboard/lessons/projects/spade.png" alt="" width="50" height="50">
+                  </div>
+                  <div class="text-center">
+                    <p class="m-0">8</p>
+                  </div>
+                </div><!-- end card -->
+              </div><!-- end Cards -->
+            </div><!-- end player -->
+          </div><!-- end players -->
+
+          <!-- actionsAndBetsDiv -->
+          <div id="actionsAndBetsDiv" class="d-flex pb-5 pt-4 justify-content-center">
+            <!-- betsDiv -->
+            <div id="betsDiv" class="d-flex flex-column w-50">
+              <!-- bottom half of bets including chip increments and submit  -->
+              <div class="py-2 h-60 d-flex justify-content-between">
+                <!-- betChoiceDiv -->
+                <div>
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-danger btn-number">
+                        -
+                      </button>
+                    </span>
+                    <input type="text" class="input-number text-center" size="2" maxlength="5" value="3">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-success btn-number">
+                        +
+                      </button>
+                    </span>
+                  </div><!--end input group div -->
+                  <p class="text-white text-center">5</p>
+                </div> <!-- end betChoiceDiv -->
+                <!-- betChoiceDiv -->
+                <div>
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-danger btn-number">
+                        -
+                      </button>
+                    </span>
+                    <input type="text" class="input-number text-center" size="2" maxlength="5" value="0">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-success btn-number">
+                        +
+                      </button>
+                    </span>
+                  </div><!--end input group div -->
+                  <p class="text-white text-center">20</p>
+                </div> <!-- end betChoiceDiv -->
+                <!-- betChoiceDiv -->
+                <div>
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-danger btn-number">
+                        -
+                      </button>
+                    </span>
+                    <input type="text" class="input-number text-center" size="2" maxlength="5" value="0">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-success btn-number">
+                        +
+                      </button>
+                    </span>
+                  </div><!--end input group div -->
+                  <p class="text-white text-center">50</p>
+                </div> <!-- end betChoiceDiv -->
+                <!-- betChoiceDiv -->
+                <div>
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-danger btn-number">
+                        -
+                      </button>
+                    </span>
+                    <input type="text" class="input-number text-center" size="2" maxlength="5" value="0">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-success btn-number">
+                        +
+                      </button>
+                    </span>
+                  </div><!--end input group div -->
+                  <p class="text-white text-center">100</p>
+                </div> <!-- end betChoiceDiv -->
+              </div><!-- end bestSelectionDiv -->
+              <!-- betSubmitDiv -->
+              <div class="w-100 btn-success rem5 text-center bg-primary">
+                Submit your bet
+              </div><!-- end betSubmitDiv -->
+            </div><!-- end betsDiv-->
+
+          </div><!-- end actionsAndBetsDiv-->
+        </div>
+      </div>
+    </div>
+  </body>
 </body>
+
 </html>

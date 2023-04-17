@@ -1,3 +1,5 @@
+import { HelperFunctions } from "./components/HelperFunctions.mjs";
+import { Card } from "./components/card.mjs";
 import { Dealer } from "./components/dealer.mjs";
 
 // 52枚のトランプ, 13のランク
@@ -17,9 +19,11 @@ import { Dealer } from "./components/dealer.mjs";
 // 4, 評価 -> プレーヤー勝ち = ハウスよりプレーヤーの合計値が高い or ハウスがバスト
 
 
+let table1 = Dealer.startGame(1, "poker");
+let table2 = Dealer.startGame(3, "21");
 
-let table1 = Dealer.startGame(4, "21");
-console.log(table1)
+Dealer.printTableInformation(table1);
+console.log(Dealer.checkWinner(table1));
 
-let table2 = Dealer.startGame(4, "poker");
-console.log(table2)
+Dealer.printTableInformation(table2);
+console.log(Dealer.checkWinner(table2));
