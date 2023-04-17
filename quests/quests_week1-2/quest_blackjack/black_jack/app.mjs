@@ -18,5 +18,8 @@ import { Dealer } from "./components/dealer.mjs";
 
 
 
-let table1 = Dealer.startGame(4);
+let table1 = Dealer.startGame(4, "21");
 console.log(table1)
+
+let table2 = Dealer.startGame(4, "poker");
+console.log(table2)
