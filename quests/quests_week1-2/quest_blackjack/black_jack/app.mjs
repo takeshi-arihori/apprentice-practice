@@ -1,3 +1,5 @@
+import { Dealer } from "./components/dealer.mjs";
+
 // 52枚のトランプ, 13のランク
 // 1テーブル「ハウス」, 5-7人のプレイヤ
 // 各プレーヤーは「ハウス」と1対1の勝負
@@ -16,46 +18,8 @@
 
 
 
-class Card {
-  constructor(suit, value, intValue){
-    this.suit = suit
-    this.value = value;
-    this.intValue = intValue;
-  }
+let table1 = Dealer.startGame(4, "21");
+console.log(table1)
 
-  getCardString(){
-    return this.suit + this.value + "(" + this.intValue + ")";
-  }
-}
-
-class Deck{
-  constructor(){
-    this.deck = Deck.generateDeck();
-  }
-
-  // デッキを作成するメソッド
-  // constructorで初期化と同時に生成するためstaticにする
-  static generateDeck(){
-    let newDeck = [];
-    const suits = ["♣", "♦", "♥", "♠"];
-    const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-
-    for(let i = 0; i < suits.length; i++){
-      for(let j = 0; j < values.length; j++){
-        newDeck.push(new Card(suits[i], values[j], j+1));
-      }
-    }
-
-    return newDeck;
-  }
-
-  printDeck(){
-    console.log("Displaying cards...")
-    for(let i = 0; i <  this.deck.length; i++){
-      console.log(this.deck[i].getCardString());
-    }
-  }
-}
-
-let deck1 = new Deck();
-deck1.printDeck();
+let table2 = Dealer.startGame(4, "poker");
+console.log(table2)
