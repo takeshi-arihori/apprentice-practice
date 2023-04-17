@@ -1,3 +1,5 @@
+import { HelperFunctions } from "./components/HelperFunctions.mjs";
+import { Card } from "./components/card.mjs";
 import { Dealer } from "./components/dealer.mjs";
 
 // 52枚のトランプ, 13のランク
@@ -18,8 +20,6 @@ import { Dealer } from "./components/dealer.mjs";
 
 
 
-let table1 = Dealer.startGame(4, "21");
-console.log(table1)
-
-let table2 = Dealer.startGame(4, "poker");
-console.log(table2)
+// PlayerAの手札
+let arr1 = [1, 5, 7, 15, 9, 10];
+console.log(HelperFunctions.maxInArrayIndex(arr1))

@@ -23,14 +23,37 @@ export class Dealer {
       table["players"].push(playerCard);
     }
 
-    // tableのプレイヤー全員の手札を返す
-    return table["players"];
+    // tableを返す
+    return table;
   }
 
   // ゲームの内容によって手札の枚数を変更する
   static initialCards(gameMode){
     if(gameMode == "poker") return 5;
     if(gameMode == "21") return 2;
+  }
+
+  // 宅の情報を表示するメソッドを作成
+  static printTableInformation(table){
+    console.log("Amount of players: " + table["players"].length + "... Game mode: " + table["gameMode"] + ". At this table: ");
+
+    for(let i = 0; i < table["players"].length; i++){
+      console.log("Player " + (i + 1) + " hand is: ");
+      for(let j = 0; j < table["players"][i].length; j++){
+        console.log(table["players"][i][j].getCardString());
+      }
+    }
+  }
+
+  // 各プレイヤーの手札を受け取って、合計値を計算するメソッド
+  // 21を超えると0になる
+  static score21Individual(cards){
+    let value = 0;
+    for(let i = 0; i < cards.length; i++){
+      value += cards[i].intValue;
+    }
+    if(value > 21) value = 0;
+    return value;
   }
 }
 
