@@ -28,8 +28,29 @@ class Card {
   }
 }
 
+class Deck{
+  constructor(){
+    this.deck = Deck.generateDeck();
+  }
 
-let card1 = new Card("♦︎","A",1);
+  // デッキを作成するメソッド
+  static generateDeck(){
+    let newDeck = [];
+    const suits = ["♣", "♦", "♥", "♠"];
+    const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
-console.log(card1);
-console.log(card1.getCardString());
+    for(let i = 0; i < suits.length; i++){
+      for(let j = 0; j < values.length; j++){
+        newDeck.push(new Card(suits[i], values[j], j+1));
+      }
+    }
+
+    return newDeck;
+  }
+}
+
+let deck1 = new Deck();
+
+// console.log(deck1.deck); // 全てのペアリスト
+console.log(deck1.deck[3]); // Card { suit: '♣', value: '4', intValue: 4 }
+// console.log(deck1.deck[3].getCardString()); // ♣4(4)
