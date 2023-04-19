@@ -11,13 +11,16 @@ export class Deck {
     let newDeck = [];
     const suits = ["♣", "♦", "♥", "♠"];
     const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+    // blackJack
+    const blackJack = { "A": 1, "J": 10, "Q": 10, "K": 10 };
 
     for (let i = 0; i < suits.length; i++) {
       for (let j = 0; j < values.length; j++) {
-        newDeck.push(new Card(suits[i], values[j], j + 1));
+        let currentValue = values[j];
+        let intValue = (gameMode === "21") ? (currentValue in blackJack ? blackJack[currentValue] : parseInt(currentValue)) : j+1;
+        newDeck.push(new Card(suits[i], values[j], intValue));
       }
     }
-
     return newDeck;
   }
 
@@ -26,7 +29,7 @@ export class Deck {
     return this.deck.pop();
   }
 
-  // カードを表示
+  // デッキにあるカードを全て表示
   printDeck() {
     console.log("Displaying cards...")
     for (let i = 0; i < this.deck.length; i++) {

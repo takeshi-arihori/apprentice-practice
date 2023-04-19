@@ -1,9 +1,11 @@
 @startuml blackjack
 
 class Card {
-  +rank: String
   +suit: String
-  +value(): Integer
+  +value: String
+  +intValue: Integer
+
+  +getCardString(): String
 }
 
 class Deck {

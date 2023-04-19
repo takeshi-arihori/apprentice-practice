@@ -5,6 +5,7 @@ export class Card {
     this.intValue = intValue;
   }
 
+  // カードの柄と数字
   getCardString(){
     return this.suit + this.value + "(" + this.intValue + ")";
   }
