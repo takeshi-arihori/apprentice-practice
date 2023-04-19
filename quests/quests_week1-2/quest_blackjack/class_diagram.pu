@@ -3,39 +3,28 @@
 class Card {
   +rank: String
   +suit: String
-  +value(): Integer
+  +value: Integer
+  +cardDisplay(): Void
 }
 
 class Deck {
-  -cards: Array<Card>
-  +shuffle(): Void
+  +cards:
   +draw(): Card
-}
-
-class Hand {
-  -cards: Array<Card>
-  +add_card(card: Card): Void
-  +total(): Integer
-}
-
-class Player {
-  -hand: Hand
-  +hit(deck: Deck): Void
-  +stand(): Void
+  +printDeck(): Void
+  +shuffle(): Void
 }
 
 class Dealer {
-  -hand: Hand
-  +play(deck: Deck): Void
+  +startGame(de): Dealer
+  (static) +startGame(
+    amountOfPlayers: int, gameMode: String): Dealer
+  +initialCards():
+  +
 }
 
+
 class Game {
-  -player: Player
-  -dealer: Dealer
-  -deck: Deck
-  +initialize(player: Player, dealer: Dealer): Void
-  +add_card_to_hand(hand: Hand, deck: Deck): Void
-  +judge(): String
+  {static} +main(args: String[]): Void
 }
 
 Game "1" *-- "1" Player : has
