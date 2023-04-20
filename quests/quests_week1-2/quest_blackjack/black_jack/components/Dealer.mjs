@@ -34,6 +34,8 @@ export class Dealer {
     if (gameMode == "21") return 2;
   }
 
+
+  
   // 宅の情報を表示するメソッドを作成
   // ラウンドロビンで各indexごとに表示
   static printTableInformation(table) {
