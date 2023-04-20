@@ -1,4 +1,4 @@
-import * as readline from 'readline/promises';
+import  readline from 'readline';
 import { HelperFunctions } from "./components/HelperFunctions.mjs";
 import { Card } from "./components/card.mjs";
 import { Dealer } from "./components/dealer.mjs";
@@ -6,13 +6,53 @@ import { Deck } from "./components/deck.mjs";
 
 
 
-console.log("ブラックジャックを開始します。");
+console.log("ブラックジャックを開始します。\n");
+
+/**
+ * --- 卓の情報 ---
+ *  let table = {
+ *    "players": [], // 二次元配列で各プレイヤーのカード情報を格納 [[{}, {}], [{}, {}]]
+ *    "gameMode": gameMode, // poker or 21
+ *    "deck": new Deck(gameMode), // {}
+ *  }
+*/
+/* --- table作成 --- */
+let table = Dealer.startGame(3, "21");
+
+/* Game開始 */
+Dealer.printTableInformation(table);
+console.log(Dealer.checkWinner(table));
+
+
+// console.log(" =================== table2 ======================")
+// Dealer.printTableInformation(table2);
+// console.log(Dealer.checkWinner(table2));
+
 
 // console.log("あなたの勝ちです!");
 // console.log("あなたの負けです!");
 // console.log("ブラックジャックを終了します。");
 
+// let result;
 
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+
+// // 入力を処理する関数
+// function processInput(input) {
+//   console.log(`あなたが入力した文字列: ${input}`);
+// }
+
+// // readlineでキーボード入力を受け取る
+// rl.question('文字列を入力してください: ', (input) => {
+//   // 入力を処理する関数を呼び出す
+//   result = processInput(input);
+
+//   // readlineインターフェースを閉じる
+//   rl.close();
+// });
 
 
 /* ============== 各クラスのテスト ============= */
@@ -88,13 +128,4 @@ console.log("ブラックジャックを開始します。");
 /* ================= 宅の種類によって勝利条件を変更する ================= */
 
 // let table1 = Dealer.startGame(1, "poker");
-let table2 = Dealer.startGame(3, "21");
-
-// console.log(" =================== table1 ======================")
-// Dealer.printTableInformation(table1);
-// console.log(Dealer.checkWinner(table1));
-
-
-// console.log(" =================== table2 ======================")
-Dealer.printTableInformation(table2);
-console.log(Dealer.checkWinner(table2));
+// let table2 = Dealer.startGame(3, "21");
