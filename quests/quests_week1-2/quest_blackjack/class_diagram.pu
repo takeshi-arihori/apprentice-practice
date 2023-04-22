@@ -1,0 +1,73 @@
+@startuml
+
+class Main {
+  + startGame(): Game
+}
+
+class Card {
+    -suit: String
+    -value: String
+    -rank: int
+    +Card(suit: String, value: String, rank: int)
+    +getSuit(): String
+    +getValue(): String
+    +getRank(): int
+    +toString(): String
+}
+
+class Deck {
+  - deck: ArrayList<Card>
+  + getDeck(): ArrayList<Card>
+  + setDeck(): void
+  + generateDeck(): ArrayList<Card>
+  + shuffleDeck(): void
+  + draw(): Card
+}
+
+abstract class Human {
+    -hand: ArrayList<Card>
+    -playerName: String
+    +Human(name: String)
+    +Human()
+    +getHand(): List<Card>
+    +getPlayerName(): String
+    +setCard(card: Card): void
+    +setPlayerName(playerName: String): void
+    +getHandTotal(): int
+    +display(): void
+}
+
+
+class Dealer {
+  +Dealer()
+  +Dealer(String)
+}
+
+class Player {
+  +Player(String)
+}
+
+class Game {
+    - dealer: Dealer
+    - player: Player
+    + startGame(): String
+}
+
+class Winner {
+    + shouldDealerDraw(dealer: Dealer): boolean
+    + isNotBust(human: Human): boolean
+}
+
+Human -> Card
+Deck --> Card
+Main --> Game
+Card --> Human
+Dealer --> Human
+Player --> Human
+Dealer --> Winner
+Player --> Winner
+Game --> Dealer
+Game --> Player
+Game --> Winner
+
+@enduml
