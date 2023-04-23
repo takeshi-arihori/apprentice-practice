@@ -1,0 +1,76 @@
+@startuml
+actor Player
+actor Dealer
+
+box "Main" #LightCoral
+participant Main
+end box
+
+box "Game" #LightBlue
+participant Game
+end box
+
+box "Card" #LightYellow
+participant Card
+end box
+
+box "Deck" #LightGreen
+participant Deck
+end box
+
+box "Winner" #LightPink
+participant Winner
+end box
+
+box "Player" #LightGray
+participant Player
+end box
+
+box "Dealer" #LightGray
+participant Dealer
+end box
+
+Main -> Game : startGame()
+activate Game
+
+Game -> Deck : new Deck()
+activate Deck
+Deck --> Game : deck
+
+Game -> Deck : shuffleDeck()
+Game -> Player : new Player("name")
+activate Player
+Game -> Dealer : new Dealer()
+activate Dealer
+
+loop
+  Player -> Game : playerDraws()
+  Game -> Deck : draw()
+  Deck --> Game : card
+  Game -> Player : setCard(card)
+end
+
+loop
+  Dealer -> Game : dealerDraws()
+  Game -> Deck : draw()
+  Deck --> Game : card
+  Game -> Dealer : setCard(card)
+end
+
+Player -> Game : displayPlayerHand()
+Game -> Player : display()
+
+Dealer -> Game : displayDealerHand()
+Game -> Dealer : display()
+
+Player -> Game : showResult()
+Game -> Winner : isWinner(player, dealer)
+Winner --> Game : result
+Game --> Player : result
+
+deactivate Player
+deactivate Dealer
+deactivate Deck
+deactivate Game
+
+@enduml

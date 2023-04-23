@@ -1,73 +1,77 @@
 @startuml
 
 class Main {
-  + startGame(): Game
-}
-
-class Card {
-    -suit: String
-    -value: String
-    -rank: int
-    +Card(suit: String, value: String, rank: int)
-    +getSuit(): String
-    +getValue(): String
-    +getRank(): int
-    +toString(): String
-}
-
-class Deck {
-  - deck: ArrayList<Card>
-  + getDeck(): ArrayList<Card>
-  + setDeck(): void
-  + generateDeck(): ArrayList<Card>
-  + shuffleDeck(): void
-  + draw(): Card
-}
-
-abstract class Human {
-    -hand: ArrayList<Card>
-    -playerName: String
-    +Human(name: String)
-    +Human()
-    +getHand(): List<Card>
-    +getPlayerName(): String
-    +setCard(card: Card): void
-    +setPlayerName(playerName: String): void
-    +getHandTotal(): int
-    +display(): void
-}
-
-
-class Dealer {
-  +Dealer()
-  +Dealer(String)
-}
-
-class Player {
-  +Player(String)
 }
 
 class Game {
-    - dealer: Dealer
-    - player: Player
-    + startGame(): String
+  -player: Player
+  -dealer: Dealer
+  -deck: Deck
+  +startGame()
+  +playerDraws()
+  +dealerDraws()
+  +displayPlayerHand()
+  +displayDealerHand()
+  +showResult()
+}
+
+class Card {
+  -suit: String
+  -value: String
+  -rank: int
+  +Card(suit: String, value: String, rank: int)
+  +getSuit(): String
+  +getValue(): String
+  +getRank(): int
+  +setSuit(suit: String)
+  +setValue(value: String)
+  +setRank(rank: int)
+  +toString(): String
+}
+
+class Deck {
+  -deck: ArrayList<Card>
+  +getDeck(): ArrayList<Card>
+  +setDeck()
+  +generateDeck(): ArrayList<Card>
+  +shuffleDeck()
+  +draw(): Card
 }
 
 class Winner {
-    + shouldDealerDraw(dealer: Dealer): boolean
-    + isNotBust(human: Human): boolean
+  +shouldDealerDraw(dealer: Dealer): boolean
+  +isNotBust(human: Human): boolean
+  +isWinner(player: Player, dealer: Dealer): String
 }
 
-Human -> Card
+abstract class Human {
+  -hand: ArrayList<Card>
+  -playerName: String
+  +Human(name: String)
+  +getHand(): List<Card>
+  +getPlayerName(): String
+  +setCard(card: Card)
+  +setPlayerName(playerName: String)
+  +getHandTotal(): int
+  +display()
+}
+
+class Player {
+  +Player(name: String)
+}
+
+class Dealer {
+  +Dealer(name: String)
+  +Dealer()
+}
+
+Main -- Game
+Game -- Player
+Game -- Dealer
+Game -- Deck
+Player --|> Human
+Dealer --|> Human
+Game -- Winner
 Deck --> Card
-Main --> Game
-Card --> Human
-Dealer --> Human
-Player --> Human
-Dealer --> Winner
-Player --> Winner
-Game --> Dealer
-Game --> Player
-Game --> Winner
 
 @enduml

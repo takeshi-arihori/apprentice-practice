@@ -60,7 +60,6 @@ public class Game {
         }
         // プレイヤーが21を超えているなら強制終了(プレイヤーの負け)
         else {
-          winner = "あなたの負けです!!";
           break;
         }
       }
@@ -80,14 +79,8 @@ public class Game {
     System.out.println("あなたの得点は" + player.getHandTotal());
     System.out.println("ディーラーの得点は" + dealer.getHandTotal());
     System.out.println();
-    if (winner == "draw") {
-      if (!Winner.isNotBust(dealer) || (player.getHandTotal() > dealer.getHandTotal())) winner = "あなたの勝ちです!!";
-      if ((player.getHandTotal() < dealer.getHandTotal()) || (Winner.isNotBust(dealer))) winner = "あなたの負けです!!";
-      else
-        winner = "引き分けです！！！";
-    }
 
-    return winner;
+    return Winner.isWinner(player, dealer);
 
   }
 
