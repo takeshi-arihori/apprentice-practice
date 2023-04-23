@@ -55,15 +55,26 @@ public class Card {
 
 	@Override
     public String toString() {
-        String cardRepresentation =
-                "┌───────┐\n" +
-                "│ " + value + "     │\n" +
-                "│       │\n" +
-                "│   " + suit + "   │\n" +
-                "│       │\n" +
-                "│     " + value + " │\n" +
-                "└───────┘";
+			if(getValue() == "10"){
+				String cardRepresentation =
+				"┌───────┐\n" +
+				"│ " + value + "    │\n" +
+				"│       │\n" +
+				"│   " + suit + "   │\n" +
+				"│       │\n" +
+				"│     " + value + "│\n" +
+				"└───────┘";
         return cardRepresentation;
+			} else {
+				String cardRepresentation =
+								"┌───────┐\n" +
+								"│ " + value + "     │\n" +
+								"│       │\n" +
+								"│   " + suit + "   │\n" +
+								"│       │\n" +
+								"│     " + value + " │\n" +
+								"└───────┘";
+				return cardRepresentation;
+			}
     }
-
 }
