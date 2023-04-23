@@ -2,8 +2,16 @@
 #### ブラックジャックをオブジェクト指向を使って実装しました。  
 #### Image  
 <img width="989" alt="スクリーンショット 2023-04-23 0 37 26" src="https://user-images.githubusercontent.com/83809409/233796275-501cf2ed-6f33-454e-b8fd-32f170a873df.png">
-   
-   
+
+### Class Diagram 
+
+![class_diagram](https://user-images.githubusercontent.com/83809409/233814102-7d069534-9918-4b27-b1c9-0fe3b54d6b76.svg)
+
+### Sequence Diagram
+
+![sequence_diagram](https://user-images.githubusercontent.com/83809409/233814393-97e9367a-1d02-47ca-81c2-fa3392aecf8c.svg)
+
+
 ## BlackJack - 実行方法
 
 #### Mac版
