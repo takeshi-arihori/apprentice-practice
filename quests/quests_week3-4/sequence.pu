@@ -1,0 +1,15 @@
+@startuml
+main -> featureA : checkout
+main -> featureB : checkout
+featureA --> main : Pull request
+main --> featureB : Pull request
+featureB --> main : review
+featureA --> main : Merge
+main --> featureB : Pull (fetch)
+featureB --> main : Pull request
+main --> featureA : Pul request
+featureA --> main: review
+featureB --> main : Merge
+main --> featureA : Pull (fetch)
+
+@enduml
