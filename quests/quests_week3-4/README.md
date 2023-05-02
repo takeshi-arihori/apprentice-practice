@@ -17,14 +17,14 @@ QUEST を解く
 - [x] [linux][Level2] 標準入出力を扱える
 - [x] [linux][Level2] パーミッションを操作できる
 - [x] [linux][Level3] プロセス・ジョブを管理できる
-- [ ] [linux][Level3] シェルスクリプトを書くことができる
-- [ ] [linux][Level3] Linux をローカルで使うことができる(advanced)
+- [x] [linux][Level3] シェルスクリプトを書くことができる
+- [x] [linux][Level3] Linux をローカルで使うことができる(advanced)
 - [x] [Git][Level1] コミットができる
 - [x] [Git][Level1] 変更状況を確認できる
 - [x] [Git][Level1] 変更を元に戻すことができる
 - [x] [Git][Level2] GitHub を使って開発を進めることができる
 - [x] [Git][Level2] ブランチを利用して開発を進めることができる
 - [x] [Git][Level2] GitHub フローに従って開発を進めることができる
-- [ ] 提出 QUEST を提出する パスワードマネージャー
-- [ ] 上記のコードを GitHub 上にアップして提出する。その際に、GitHub フローに従ってプルリクエストを作成し進めること
+- [x] 提出 QUEST を提出する パスワードマネージャー
+- [x] 上記のコードを GitHub 上にアップして提出する。その際に、GitHub フローに従ってプルリクエストを作成し進めること
 - [x] ブログ記事を投稿する

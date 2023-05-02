@@ -1,7 +1,30 @@
 ## パスワードマネージャー
 
-#### GitHubフローに沿って作成しました。
-[GitHubフローについて](https://qiita.com/arihori13/items/d0478279b417ba93ea000)
+## GitHubフローに沿って作成しました。
+参照: [GitHubフローについて](https://qiita.com/arihori13/items/d0478279b417ba93ea000)
+
+## 作成手順
+1. GnuPGをインストールする(Mac)
+brewを使用してインストールする必要があります。まずはHomebrew（パッケージマネージャ）をインストールしていない場合はインストールしてください。
+
+Homebrewのインストール方法は以下の通りです。
+
+2. ``password_manager``ディレクトリーに移動してください。
+
+3. 実行できるように実行権限を付与します。
+- 初期状態はこんな感じです
+```
+-rw-r--r--  1 your-name  staff  1427  5  2 11:35 password-manager-step3.sh
+```
+- 実行権限の付与
+```
+chmod +x <file-name>.sh
+例: chmod +x password-manager3.sh
+```
+- ``ls -l``でディレクトリの詳細情報を表示
+```
+-rwxr-xr-x  1 takeshi-arihori  staff  1427  5  2 11:35 password-manager3.sh
+```
 
 #### パスワードを管理するパスワードマネージャーを、シェルスクリプトを利用して作成しましょう。
 
@@ -45,16 +68,12 @@ $HOMEディレクトリに``passwords.txt``という名前で保存
 ## ステップ2(advanced)
 パスワードを保存し、出力するパスワードマネージャーをシェルスクリプトで作成します。パスワードの暗号化はしません。
 
-以下の情報を保存・出力できるようにします。この情報はファイルに保存してください。
-
-サービス名
-ユーザー名
-パスワード
-シェルスクリプトを実行すると、以下のメニューが表示されます。
-
+```
 パスワードマネージャーへようこそ！
 次の選択肢から入力してください(Add Password/Get Password/Exit)：
-Add Password が入力されると、サービス名、ユーザー名、パスワードの入力が求められ、入力された情報をファイルに保存します。 Get Password が入力されると、サービス名の入力が求められ、入力されたサービスのサービス名、ユーザー名、パスワードが表示されます。 Exit が入力されると、プログラムが終了します。 Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返されます。
+Add Password が入力されると、サービス名、ユーザー名、パスワードの入力が求められ、入力された情報をファイルに保存します。
+Get Password が入力されると、サービス名の入力が求められ、入力されたサービスのサービス名、ユーザー名、パスワードが表示されます。
+Exit が入力されると、プログラムが終了します。 Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返されます。
 
 ▼呼び出し
 
@@ -82,14 +101,20 @@ Add Password が入力されると、サービス名、ユーザー名、パス�
 パスワード：piyo
 
 次の選択肢から入力してください(Add Password/Get Password/Exit)：
+```
 
-# Exit が入力された場合
+#### Exit が入力された場合
+```
 Thank you!
-## プログラムが終了
-
-# Add Password/Get Password/Exit 以外が入力された場合
+プログラムが終了
+```
+#### Add Password/Get Password/Exit 以外が入力された場合
+```
 入力が間違えています。Add Password/Get Password/Exit から入力してください。
-ステップ3(advanced)
+```
+
+
+## ステップ3(advanced)
 パスワードが保存されたファイルを暗号化しましょう。ファイルが暗号化されていないとパスワードがファイルから直接確認可能なためセキュリティ上危険性が高いです。
 
 暗号化には好きなツールを使っていただいて構いません。なお、有名なものには GnuPG(GNU Privacy Guard) があります。
@@ -99,18 +124,3 @@ Thank you!
 Add Password が入力された場合、サービス名、ユーザー名、パスワードをファイルに保存した後にファイルを暗号化します
 暗号化されたファイルを開いて、パスワードが読み取れないことを確認してください
 Get Password が入力された場合、暗号化されたファイルを復号化して（元の状態に戻して）サービス名、ユーザー名、パスワードを表示します。なおその際に、ファイルそのものは暗号化された状態を維持してください（Get Password後にファイルを開いてもファイルは暗号化されています）
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-serverside-apprentice/PASSWORD_MANAGER.md at 1st · APPRENTICE-jp/serverside-apprentice
