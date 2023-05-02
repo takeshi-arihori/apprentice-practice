@@ -1,7 +1,7 @@
 ## パスワードマネージャー
 
 ## GitHubフローに沿って作成しました。
-参照: [GitHubフローについて](https://qiita.com/arihori13/items/d0478279b417ba93ea000)
+参照: [GitHubフローについて](https://qiita.com/arihori13/items/d0478279b417ba93ea00)
 
 ## 作成手順
 1. GnuPGをインストールする(Mac)
