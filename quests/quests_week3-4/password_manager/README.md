@@ -1,4 +1,8 @@
 ## パスワードマネージャー
+
+#### GitHubフローに沿って作成しました。
+[GitHubフローについて](https://qiita.com/arihori13/items/d0478279b417ba93ea000)
+
 #### パスワードを管理するパスワードマネージャーを、シェルスクリプトを利用して作成しましょう。
 
 Apprenticeの課題の一環で、各サービスのIDとパスワードを保存するパスワードマネージャーを作成しました。
@@ -29,9 +33,12 @@ Thank you!
 ▼呼び出し
 ``./password_manager1.sh``
 
+▼Password Fileの場所の確認
+``PASSWORD_FILE="$HOME/passwords.txt"``
+$HOMEディレクトリに``passwords.txt``という名前で保存
+
 ▼$PASSWORD_FILEに追加されたパスワードを表示
 ``cat ~/passwords.txt``
-
 
 
 
