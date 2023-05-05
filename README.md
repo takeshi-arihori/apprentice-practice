@@ -39,7 +39,7 @@ Week 1-2: JavaScript/オブジェクト指向
 Week 3-4: Linux/Git,GitHub/TypeScript/React/Next.js/API/HTML/CSS/Sass
 期間：4/24(月) - 5/7(日)
 - [x] [もう怖くないLinuxコマンド。手を動かしながらLinuxコマンドラインを5日間で身に付けよう](https://www.udemy.com/share/102dIu3@olmtc9FfVwvpJhXWaXNOjjYK5u-LIBfnch4i6PUy_devfpbiNa284hc1gsWgcT4LbQ==/)
-- [ ] [サバイバルTypeScript](https://typescriptbook.jp/)
+- [x] [サバイバルTypeScript](https://typescriptbook.jp/)
 - [ ] [TypeScriptとReact/Next.jsでつくる実践Webアプリケーション開発](https://amzn.asia/d/fosKH90)
 - [ ] [【2023年最新】React(v18)完全入門ガイド｜Hooks、Next.js、Redux、TypeScript](https://www.udemy.com/share/106Nqw3@uFBWfnk1nPYzv8ji3t0N7YJAMI8TC8jHqt333CrCMGRJJcKVdFK4774dcelibxbZ2A==/)
 - [ ] [JavaScriptの動作を論理的に解説！JavaScript中級者への道](https://www.udemy.com/share/102zAI3@wh5JyE8eVj0k_7c3z689jx7AM9jOqCMsszEJBuqtb60qeCHGqGSv-2BwCAWRNtjZlA==/)
