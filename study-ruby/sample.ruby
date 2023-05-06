@@ -31,3 +31,14 @@ def hello_world
   "Hello, World"
 end
 
+# 再帰関数を定義
+def fact(n)
+  if n == 0
+    1
+  else
+    n * fact(n - 1)
+  end
+end
+
+puts fact(5)
+
