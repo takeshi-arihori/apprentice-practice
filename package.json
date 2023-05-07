@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "babel-preset-es2015": "^6.24.1"
-  },
-  "dependencies": {
-    "node-plantuml": "^0.9.0"
-  }
-}
