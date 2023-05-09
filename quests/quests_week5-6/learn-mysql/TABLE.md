@@ -5,10 +5,10 @@
 任意のテーブルを作成してください。テーブルのカラムは自由に作成してください。
 #### テーブルの作成(country)
 ```
-mysql> INSERT INTO countries (name, population, area) VALUES
-    ->   ('Japan', 126050000, 377972),
-    ->   ('United States', 331449000, 9833520),
-    ->   ('Germany', 83166700, 357022);
+ INSERT INTO countries (name, population, area) VALUES
+  ('Japan', 126050000, 377972),
+  ('United States', 331449000, 9833520),
+  ('Germany', 83166700, 357022);
 Query OK, 3 rows affected (0.00 sec)
 Records: 3  Duplicates: 0  Warnings: 0
 ```
