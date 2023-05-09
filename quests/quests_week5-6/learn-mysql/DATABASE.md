@@ -16,6 +16,7 @@ Root権限を持つユーザー(root)で MySQL へ接続しましょう。次の
 MySQL のクライアントツールを使用して接続する(わかりやすさを重視したい場合はこちら。MySQL Workbench, Sequel Ace がオススメ)
 ```
 mysql -u root -p
+mysql -u takeshi-a -h localhost -p
 ```
 
 

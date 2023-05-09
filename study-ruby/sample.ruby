@@ -41,4 +41,3 @@ def fact(n)
 end
 
 puts fact(5)
-
