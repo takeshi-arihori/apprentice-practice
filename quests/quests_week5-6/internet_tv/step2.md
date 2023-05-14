@@ -216,3 +216,4 @@ SELECT * FROM program_slot_episodes;
 ```
 
 これで、データベースの構築とデータの挿入が完了しました。
+
