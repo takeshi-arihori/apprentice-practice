@@ -1,0 +1,60 @@
+@startuml
+
+entity "channels" as channels {
+  + id (PK)
+  --
+  name
+}
+
+entity "program_slots" as program_slots {
+  + id (PK)
+  --
+  channel_id (FK - channels.id)
+  start_time
+  end_time
+}
+
+entity "programs" as programs {
+  + id (PK)
+  --
+  title
+  detail
+}
+
+entity "genres" as genres {
+  + id (PK)
+  --
+  name
+}
+
+entity "program_genres" as program_genres {
+  + program_id (PK, FK - programs.id)
+  + genre_id (PK, FK - genres.id)
+}
+
+entity "episodes" as episodes {
+  + id (PK)
+  --
+  program_id (FK - programs.id)
+  season
+  episode
+  title
+  detail
+  duration
+  release_date
+  view_count
+}
+ 
+entity "program_slot_episodes" as program_slot_episodes {
+  + program_slot_id (PK, FK - program_slots.id)
+  + episode_id (PK, FK - episodes.id)
+}
+
+channels ||--o{ program_slots : contains
+program_slots }o--|| program_slot_episodes : contains
+programs ||--o{ episodes : contains
+programs ||--o{ program_genres : contains
+genres ||--o{ program_genres : contains
+episodes }o--|| program_slot_episodes : contains
+
+@enduml
