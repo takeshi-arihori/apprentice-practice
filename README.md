@@ -17,8 +17,10 @@ root
   |         |           |--- submission_quest
   |         |           |--- solve_the_quest
   |         |--- quests_week3-4
-  |                     |--- submission_quest
-  |                     |--- solve_the_quest
+  |         |           |--- submission_quest
+  |         |           |--- solve_the_quest
+  |         |--- quests_week5-6
+  |                     |--- 
   |--- study-ruby
 
 </pre>
