@@ -102,11 +102,11 @@ content text
 
 
 ## program_slot_episodesテーブル
-```
+
 | カラム名 | データ型 | NULL | キー | 初期値 | AUTO INCREMENT |
 |---|---|---|---|---|---|
 | program_slot_id | INT | NO | PRIMARY, FOREIGN KEY | - | - |
 | episode_id | INT | NO | PRIMARY, FOREIGN KEY | - | - |
 | view_count | INT | YES | - | - | - |
-```
+
 
