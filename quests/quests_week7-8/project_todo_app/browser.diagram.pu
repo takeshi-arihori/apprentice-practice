@@ -1,0 +1,16 @@
+@startuml Web browserの仕組み
+start
+:User enters URL;
+
+:Browser parses the URL;
+:Browser sends HTTP request based on parsed URL;
+
+:Browser parses the HTTP response to fetch data (HTML, CSS, JS);
+
+:Browser renders the page based on fetched data
+(constructing DOM, CSSOM, creating rendering tree, layout calculation, pixel painting);
+
+:Browser executes JavaScript;
+
+stop
+@enduml
