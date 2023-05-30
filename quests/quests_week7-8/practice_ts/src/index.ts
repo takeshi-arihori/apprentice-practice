@@ -4,8 +4,8 @@ const message: string = "Hello, TypeScript";
 
 const width1 = 5;
 const width2 = 8;
-const height:number = 3;
-const area = (width1 + width2) * height / 2;
+const height: number = 3;
+const area = ((width1 + width2) * height) / 2;
 // console.log(area);
 
 // 数値リテラル
@@ -29,7 +29,6 @@ const exponentialLiteral: number = 6e3;
 const million = 1_000_000;
 // console.log(million);
 
-
 // TypeScriptの数値型の実態
 // number型は、浮動小数点数と整数を表す: IEEE 754倍精度浮動小数点数(他の言語でいうdouble型で64ビット)
 // 数値(仮数部)の精度が53ビットまで保証されている
@@ -40,7 +39,6 @@ const million = 1_000_000;
 
 // console.log(Number.MIN_SAFE_INTEGER);
 
-
 // Bigint型
 // 2の53乗より大きい整数を扱うことができる
 const bignum: bigint = (123n + 456n) * 2n;
@@ -50,13 +48,12 @@ const bignum: bigint = (123n + 456n) * 2n;
 // const bignum2: bigint = 123.456n; // error TS1353: A bigint literal must be an integer.
 // console.log(bignum2);
 
-
 /* ======================================
  ============ readlineで入力 =============
  ======================================== */
 
 // プリミティブ型同士の変換(暗黙の変換)
-import {createInterface} from 'readline';
+// import {createInterface} from 'readline';
 
 // const rl = createInterface({
 //   input: process.stdin,
@@ -78,7 +75,6 @@ import {createInterface} from 'readline';
 //   rl2.close();
 // });
 
-
 /* ======================================
  =========== その他を数値に変換 ============
  ======================================== */
@@ -94,15 +90,57 @@ import {createInterface} from 'readline';
 // console.log(Number(undefined)); // NaN
 
 // ランタイムエラーになる
-const bigint1 = BigInt("1234");
-console.log(bigint1); // 1234n
+// const bigint1 = BigInt("1234");
+// console.log(bigint1); // 1234n
 
-const bigint2 = BigInt(500);
-console.log(bigint2); // 500n
+// const bigint2 = BigInt(500);
+// console.log(bigint2); // 500n
 
-const bigint3 = BigInt(true);
-console.log(bigint3); // 1n
+// const bigint3 = BigInt(true);
+// console.log(bigint3); // 1n
 
-const bigint = BigInt("fooooooo");
-console.log("bigint is ", bigint); // BigIntにはNaNに相当する値がないので、エラーになる
+// const bigint = BigInt("fooooooo");
+// console.log("bigint is ", bigint); // BigIntにはNaNに相当する値がないので、エラーになる
 
+/* ======================================
+  =========== 数値を文字列に変換 ============
+  ======================================== */
+
+// const addResult = 1024 + 314 + 500;
+// console.log(addResult); // 1838
+// const discounted = addResult * 0.7;
+// console.log(discounted); // 1286.6
+
+// const sqrt2 = 2 ** 0.5;
+// console.log(sqrt2); // 1.4142135623730951
+
+// const res1 = 5 - 1.86;
+// console.log(res1); // 3.14
+// const res2 = 2n ** 5n;
+// console.log(res2); // 32n
+
+/* ======================================
+  =========== 比較演算子と等価演算子 ============
+  ======================================== */
+
+// パスワード入力
+// import {createInterface} from 'readline';
+
+// const rl = createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
+// rl.question('パスワードを入力してください。>', (password) => {
+//   if(password === 'hogemoge'){
+//     console.log('ログインしました');
+//   }
+//   else {
+//     console.log('パスワードが違います');
+//   }
+//   rl.close();
+// });
+
+// Node.jsでは、環境変数をprocess.envで取得できるのだが、その環境変数が与えられていない場合には、undefinedが返される。
+// 以下のケースでは、論理演算子は ?? が使われている。
+// const secret = process.env.SECRET ?? 'default';
+// console.log(`secretは${secret}です。`);
