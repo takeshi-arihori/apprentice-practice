@@ -325,3 +325,6 @@ Postmanを起動します。起動すると、左側に「Collections」パネ�
 3. PHPMyAdminを開き、articlesテーブルを確認します。すると、記事が削除されていることが確認できます。
 
 以上で、Postmanを使用してCreate Article、Get Article、Update Article、Delete Articleを実装する方法の解説を終わります。Postmanを使用することで、APIの実装を簡単に確認することができます。ぜひ、Postmanを使ってAPIの実装を確認してみてください。
+
+![mermaid-diagram-2023-06-18-202451](https://github.com/takeshi-arihori/apprentice-practice/assets/83809409/c099e155-a71b-43bc-afc2-5c5bd30da4fc)
+
