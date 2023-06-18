@@ -27,6 +27,7 @@ Delete Article
 
 1. Laravel Sail にて環境構築を行う
    詳細は Blog に書いてあります。
+   
    [Laravel Sailを使用した環境構築](https://qiita.com/arihori13/items/08fd37895cf2a91a3053)
 
 3. モデルとマイグレーションの作成
